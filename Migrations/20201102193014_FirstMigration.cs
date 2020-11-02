@@ -15,9 +15,10 @@ namespace BlogApi.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Size = table.Column<int>(nullable: false),
+                    Size = table.Column<long>(nullable: false),
                     Type = table.Column<string>(nullable: true),
-                    UpdatedAt = table.Column<DateTime>(nullable: false)
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    Url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

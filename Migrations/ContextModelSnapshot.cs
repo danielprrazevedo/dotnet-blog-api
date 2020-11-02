@@ -52,11 +52,13 @@ namespace BlogApi.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Size");
+                    b.Property<long>("Size");
 
                     b.Property<string>("Type");
 
                     b.Property<DateTime>("UpdatedAt");
+
+                    b.Property<string>("Url");
 
                     b.HasKey("Id");
 

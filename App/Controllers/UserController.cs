@@ -1,4 +1,5 @@
-using System;
+
+
 using System.Threading.Tasks;
 using BlogApi.App.Models;
 using BlogApi.App.Services.Interfaces;
@@ -14,7 +15,6 @@ namespace BlogApi.App.Controllers
         public UserController(IUserService service) : base(service) => _service = service;
 
 
-        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] Auth auth)
         {
             var user = await _service.AuthUser(auth.username, auth.password);

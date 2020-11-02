@@ -11,7 +11,7 @@ using System;
 namespace BlogApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20201102033652_FirstMigration")]
+    [Migration("20201102193014_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,11 +53,13 @@ namespace BlogApi.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Size");
+                    b.Property<long>("Size");
 
                     b.Property<string>("Type");
 
                     b.Property<DateTime>("UpdatedAt");
+
+                    b.Property<string>("Url");
 
                     b.HasKey("Id");
 

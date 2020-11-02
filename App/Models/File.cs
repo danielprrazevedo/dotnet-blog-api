@@ -7,6 +7,7 @@ namespace BlogApi.App.Models
     {
         public String Name { get; set; }
         public String Type { get; set; }
-        public int Size { get; set; }
+        public long Size { get; set; }
+        public String Url { get; set; }
     }
 }
