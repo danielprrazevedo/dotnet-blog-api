@@ -37,7 +37,6 @@ namespace BlogApi.App.Controllers
             result.Url = $"{GetUrl()}/api/file/download/{result.Id}";
             await _service.UpdateAsync(result.Id, result);
 
-            Console.WriteLine(result);
             return Json(result);
         }
         private string GetUrl()
@@ -48,7 +47,6 @@ namespace BlogApi.App.Controllers
         [HttpGet("download/{id}")]
         public async Task<IActionResult> Download(Guid id)
         {
-            Console.WriteLine("passou aqui");
             File result = await _service.GetByIdAsync(id);
 
             string filename = "files/" + result.Id.ToString();
