@@ -14,7 +14,7 @@ namespace BlogApi.App.Controllers
         protected new readonly IUserService _service;
         public UserController(IUserService service) : base(service) => _service = service;
 
-
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] Auth auth)
         {
             var user = await _service.AuthUser(auth.username, auth.password);

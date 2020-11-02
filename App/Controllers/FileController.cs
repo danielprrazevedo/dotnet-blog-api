@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using BlogApi.App.Models;
 using BlogApi.App.Services.Interfaces;
 using BlogApi.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 
 namespace BlogApi.App.Controllers
 {
+    [Authorize]
     [Route("api/file")]
     public class FileController : ControllerBase<File>
     {
@@ -44,6 +46,7 @@ namespace BlogApi.App.Controllers
             return $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
         }
 
+        [AllowAnonymous]
         [HttpGet("download/{id}")]
         public async Task<IActionResult> Download(Guid id)
         {
