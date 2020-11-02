@@ -9,6 +9,7 @@ namespace BlogApi.App.IoC
         public static void AppRepositoryIoC(this IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IFileRepository, FileRepository>();
         }
     }
 }

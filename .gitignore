@@ -12,3 +12,7 @@ appsettings.json
 
 # Database File
 blog.sqlite
+
+# Files dir
+files/*
+!files/.gitkeep
