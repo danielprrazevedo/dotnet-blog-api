@@ -30,8 +30,6 @@ namespace BlogApi.Core.Database
 
         public virtual async Task<TEntity> AddAsync(TEntity obj)
         {
-            obj.CreatedAt = DateTime.Now;
-            obj.UpdatedAt = DateTime.Now;
             var r = await dbSet.AddAsync(obj);
             await CommitAsync();
             return r.Entity;
@@ -81,7 +79,6 @@ namespace BlogApi.Core.Database
 
             var entry = _context.Entry(obj);
             if (entry.State == EntityState.Detached) _context.Attach(obj);
-            obj.UpdatedAt = DateTime.Now;
 
             _context.Entry(obj).State = EntityState.Modified;
             await CommitAsync();
