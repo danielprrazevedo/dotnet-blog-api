@@ -10,6 +10,8 @@ namespace BlogApi.App.IoC
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<ICommentService, CommentService>();
         }
     }
 }
