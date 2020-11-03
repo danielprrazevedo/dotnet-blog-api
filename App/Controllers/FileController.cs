@@ -24,18 +24,8 @@ namespace BlogApi.App.Controllers
             if (file.ToArray().Length <= 0)
                 throw new ArgumentNullException("file", "file item non passed");
 
-            IFormFile _file = file[0];
-            File item = new File();
-            item.Name = _file.FileName;
-            item.Size = Convert.ToInt32(_file.Length);
-            item.Type = _file.ContentType;
+            var result = await _service.Store(file[0]);
 
-            File result = await _service.AddAsync(item);
-
-            using (var stream = System.IO.File.Create($"files/{result.Id.ToString()}"))
-            {
-                await _file.CopyToAsync(stream);
-            }
             result.Url = $"{GetUrl()}/api/file/download/{result.Id}";
             await _service.UpdateAsync(result.Id, result);
 
